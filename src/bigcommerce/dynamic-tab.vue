@@ -1,6 +1,6 @@
 <template>
-    <div id="app">
-      <div class="tabheader">
+    <div id="dynamicTab">
+      <div class="tab-header">
         <button
           v-for="tab in tabs"
           @click="onTabClick(tab)"
@@ -80,7 +80,7 @@
   </script>
   
   <style>
-    .tabheader {
+    .tab-header {
       background-color: black;
       color: white;
     }

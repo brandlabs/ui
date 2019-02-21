@@ -19,7 +19,6 @@ const helpers = {
             visible: false
           });
         });
-        console.log(tabs);
         return tabs;
     }
 }

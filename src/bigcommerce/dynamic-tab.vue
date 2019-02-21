@@ -3,9 +3,9 @@
     <div class="tab-header">
       <button
         v-for="tab in tabs"
-        @click="onTabClick(tab)"
+        @click="activeTab = tab"
         class="tab-button"
-        :class="{ active: tab.visible }"
+        :class="{ active: tab === activeTab }"
       >
         {{ tab.key }}
       </button>
@@ -15,9 +15,8 @@
       :ref="tab.key"
       :id="tab.key"
       v-for="tab in tabs"
-      v-if="tab.visible"
-      class="tab-body"
-      :class="{ active: tab.visible }"
+      v-show="tab === activeTab"
+      class="tab-body active"
     >
       <div v-html="tab.description"></div>
     </div>
@@ -30,7 +29,7 @@
     data() {
       return {
         tabs: [],
-        currentTab: null
+        activeTab: null
       };
     },
     created() {
@@ -39,14 +38,6 @@
       this.activateFirstTab();
     },
     methods: {
-      onTabClick(tab) {
-        if (tab.visible === true && tab.key === this.currentTab.key) return;
-        tab.visible = true;
-        if (this.currentTab) {
-          this.currentTab.visible = false;
-        }
-        this.currentTab = tab;
-      },
       parseDescription(description) {
         const parsedTabs = helper.parseDescription(description);
         this.tabs = this.tabs.concat(parsedTabs);
@@ -54,7 +45,6 @@
           this.tabs.push({
             key: this.defaultTabName,
             description,
-            visible: true
           });
         }
       },
@@ -65,17 +55,12 @@
             this.tabs.push({
               key: item.tabTitle,
               description: el.innerHTML,
-              visible: false
             });
           }
         });
       },
       activateFirstTab() {
-        if (this.tabs.length > 0) {
-          const activeTab = this.tabs[0];
-          activeTab.visible = true;
-          this.currentTab = activeTab;
-        }
+        this.activeTab = this.tabs[0];
       }
     },
     props: {

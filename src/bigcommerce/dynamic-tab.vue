@@ -61,11 +61,13 @@
       injectTabs(selectors) {
         selectors.forEach(item => {
           const el = document.querySelector(item.selector);
-          this.tabs.push({
-            key: item.tabTitle,
-            description: el.innerHTML,
-            visible: false
-          });
+          if (el) {
+            this.tabs.push({
+              key: item.tabTitle,
+              description: el.innerHTML,
+              visible: false
+            });
+          }
         });
       },
       activateFirstTab() {

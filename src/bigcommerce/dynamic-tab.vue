@@ -25,6 +25,7 @@
 </template>
 
 <script>
+  import helper from './dynamic-tab-helpers';
   export default {
     data() {
       return {
@@ -33,8 +34,8 @@
       };
     },
     created() {
-      this.parsDescription(this.description, this.tabs);
-      this.injectTabs(this.selectorsToInject, this.tabs);
+      this.parseDescription(this.description);
+      this.injectTabs(this.selectorsToInject);
       this.activateFirstTab();
     },
     methods: {
@@ -46,36 +47,21 @@
         }
         this.currentTab = tab;
       },
-      parsDescription(description, tabs) {
-        let startRow = -1;
-        let endRow = 0;
-        while (1 === 1) {
-          startRow = description.indexOf('<tr>', endRow);
-          endRow = description.indexOf('</tr>', startRow);
-          if (startRow === -1 || endRow === -1) break;
-          const rowData = description.substr(
-            startRow + 4,
-            endRow - startRow - 4
-          );
-          const splited = rowData.split('</td>');
-          tabs.push({
-            key: splited[0].trim().substr(4),
-            description: splited[1].trim().substr(4),
-            visible: false
-          });
-        }
-        if (tabs.length === 0) {
-          tabs.push({
+      parseDescription(description) {
+        const parsedTabs = helper.parseDescription(description);
+        this.tabs = this.tabs.concat(parsedTabs);
+        if (this.tabs.length === 0) {
+          this.tabs.push({
             key: this.defaultTabName,
             description,
             visible: true
           });
         }
       },
-      injectTabs(selectors, tabs) {
+      injectTabs(selectors) {
         selectors.forEach(item => {
           const el = document.querySelector(item.selector);
-          tabs.push({
+          this.tabs.push({
             key: item.tabTitle,
             description: el.innerHTML,
             visible: false

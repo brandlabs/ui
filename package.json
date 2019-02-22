@@ -12,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    
+  },
+  "peerDependencies": {
     "vue.js": "^0.3.2",
     "vuex": "^3.1.0"
   },

@@ -95,7 +95,7 @@
   };
 </script>
 
-<style>
+<style lang="scss">
   .tab-header {
     background-color: black;
     color: white;

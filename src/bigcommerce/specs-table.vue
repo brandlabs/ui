@@ -16,8 +16,9 @@
             };
         },
         created() {
+            if (!this.productData.custom_fields) return;
             const customFieldsObj = transformPathToHierarchy([this.productData], this.nameSpace);
-
+            if (!customFieldsObj) return;
             customFieldsObj.forEach(s => {
                 const key = `${this.nameSpace} \\ ${s.path}`;
                 const customField = this.productData.custom_fields.find(c => c.name === key);
@@ -43,10 +44,10 @@
                 type: Number,
                 required: false,
             },
-            productData:{
+            productData: {
                 type: Object,
                 required: true,
-            }
+            },
         },
     };
 </script>

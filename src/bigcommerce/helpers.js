@@ -9,7 +9,7 @@ const helpers = {
         const el = document.createElement('body');
         el.innerHTML = description;
         const rows = el.querySelectorAll('body table tbody tr');
-        if (!rows) {
+        if (!rows || rows.length === 0) {
             throw new Error("Invalid Table. Couldn't Parse Description Data");
         }
         rows.forEach(r => {

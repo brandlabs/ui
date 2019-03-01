@@ -47,10 +47,10 @@
              * @param {*} description
              */
             parseDescription(description) {
-                try {
-                    const parsedTabs = helper.parseDescription(description);
+                const parsedTabs = helper.parseDescription(description);
+                if (parsedTabs) {
                     this.tabs = this.tabs.concat(parsedTabs);
-                } catch (error) {
+                } else {
                     this.tabs.push({
                         key: this.defaultTabName,
                         description,
@@ -76,7 +76,7 @@
             },
             /**
              * activate first tab in tabs array. set visible prop - true
-            */
+             */
             activateFirstTab() {
                 if (this.tabs.length === 0) return;
                 const activeTab = this.tabs[0];

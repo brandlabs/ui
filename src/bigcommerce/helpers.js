@@ -10,12 +10,13 @@ const Helpers = {
         el.innerHTML = description;
         const rows = el.querySelectorAll('div table tbody tr');
         if (!rows || rows.length === 0) {
-            throw new Error("Invalid Table. Couldn't Parse Description Data");
+            return null;
         }
+        // eslint-disable-next-line consistent-return
         rows.forEach(r => {
             const cells = r.querySelectorAll('td');
             if (cells.length !== 2) {
-                throw new Error('Invalid Table. Invalid Number of Columns. Table Should Have 2 Columns');
+                return null;
             }
             tabs.push({
                 key: cells[0].innerHTML,

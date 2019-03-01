@@ -16,9 +16,13 @@
             };
         },
         created() {
-            if (!this.productData.custom_fields) return;
+            if (!this.productData.custom_fields) {
+                return;
+            }
             const customFieldsObj = transformPathToHierarchy([this.productData], this.nameSpace);
-            if (!customFieldsObj) return;
+            if (!customFieldsObj) {
+                return;
+            }
             customFieldsObj.forEach(s => {
                 const key = `${this.nameSpace} \\ ${s.path}`;
                 const customField = this.productData.custom_fields.find(c => c.name === key);

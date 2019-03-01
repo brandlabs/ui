@@ -1,4 +1,4 @@
-const helpers = {
+const Helpers = {
     /**
      * parsing description and extractiong tabs
      * @param {*} description
@@ -6,9 +6,9 @@ const helpers = {
      */
     parseDescription(description) {
         const tabs = [];
-        const el = document.createElement('body');
+        const el = document.createElement('div');
         el.innerHTML = description;
-        const rows = el.querySelectorAll('body table tbody tr');
+        const rows = el.querySelectorAll('div table tbody tr');
         if (!rows || rows.length === 0) {
             throw new Error("Invalid Table. Couldn't Parse Description Data");
         }
@@ -26,4 +26,4 @@ const helpers = {
         return tabs;
     },
 };
-export default helpers;
+export default Helpers;

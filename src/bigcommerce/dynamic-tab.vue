@@ -1,12 +1,13 @@
 <template>
     <div id="dynamicTab">
         <div class="tab-header">
-            <button v-for="tab in tabs" @click="onTabClick(tab)" class="tab-button" :class="{ active: tab.visible }">
+            <button v-for="tab in tabs" @click="activeTab = tab" class="tab-button" :class="{ active: tab === activeTab }">
                 {{ tab.key }}
             </button>
         </div>
 
-        <div :ref="tab.key" :id="tab.key" v-for="tab in tabs" v-if="tab.visible" class="tab-body" :class="{ active: tab.visible }">
+        <div :ref="tab.key" :id="tab.key" v-for="tab in tabs" v-show="tab === activeTab"
+        class="tab-body active">
             <div v-html="tab.description"></div>
         </div>
     </div>
@@ -18,7 +19,7 @@
         data() {
             return {
                 tabs: [],
-                currentTab: null,
+                activeTab: null
             };
         },
         created() {
@@ -27,19 +28,6 @@
             this.activateFirstTab();
         },
         methods: {
-            /**
-             * make tab active when user will click on that
-             * @param {*} tab
-             *
-             */
-            onTabClick(tab) {
-                if (tab.visible === true && tab.key === this.currentTab.key) return;
-                tab.visible = true;
-                if (this.currentTab) {
-                    this.currentTab.visible = false;
-                }
-                this.currentTab = tab;
-            },
             /**
              * pars description to extract tabs
              * catch all edgecage and render full descrion
@@ -78,10 +66,7 @@
              * activate first tab in tabs array. set visible prop - true
              */
             activateFirstTab() {
-                if (this.tabs.length === 0) return;
-                const activeTab = this.tabs[0];
-                activeTab.visible = true;
-                this.currentTab = activeTab;
+                this.activeTab = this.tabs[0];
             },
         },
         props: {

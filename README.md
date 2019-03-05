@@ -60,3 +60,8 @@ return new Vue({
 ```
 
 - to inject alrady existing element in your page as tab, use property `selectorsToInject` and pass selector and tab title as it is shown in example above.
+
+### Transpiling
+
+current ui lib has some helper js files that need to be transpiled in your project. for that pls add/edit your webpack config file to include current lib.
+`include: /(assets\/js|assets\\js|stencil-utils|brandlabs-ui)/,`

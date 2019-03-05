@@ -42,7 +42,6 @@
                     this.tabs.push({
                         key: this.defaultTabName,
                         description,
-                        visible: true,
                     });
                 }
             },
@@ -57,13 +56,12 @@
                         this.tabs.push({
                             key: item.tabTitle,
                             description: el.innerHTML,
-                            visible: false,
                         });
                     }
                 });
             },
             /**
-             * activate first tab in tabs array. set visible prop - true
+             * activate first tab in tabs array.
              */
             activateFirstTab() {
                 this.activeTab = this.tabs[0];

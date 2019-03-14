@@ -1,7 +1,7 @@
-const something = {
-    blah() {
-        console.log('QQQQQQQQQQQQ');
-    },
+import dynamicTabs from './src/bigcommerce/dynamic-tab.vue';
+import specsTable from './src/bigcommerce/specs-table.vue';
+
+export default {
+    dynamicTabs,
+    specsTable,
 };
-module.exports = something;
-// export default something;

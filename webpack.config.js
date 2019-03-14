@@ -2,10 +2,7 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-    entry: {
-        dynamicTab: './src/bigcommerce/dynamic-tab.vue',
-        specsTable: './src/bigcommerce/specs-table.vue',
-    },
+    entry: './src/index.js',
     module: {
         rules: [
             {
@@ -27,7 +24,7 @@ module.exports = {
         ],
     },
     output: {
-        filename: '[name].js',
+        filename: 'ui.js',
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [new VueLoaderPlugin()],

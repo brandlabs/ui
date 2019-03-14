@@ -68,6 +68,138 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_script_lang_js___ = __webpack_require__(1);
+/* unused harmony namespace reexport */
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_script_lang_js___["a" /* default */]); 
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(10);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  data: function data() {
+    return {
+      tabs: [],
+      activeTab: null
+    };
+  },
+  created: function created() {
+    this.parseDescription(this.description);
+    this.injectTabs(this.selectorsToInject);
+    this.activateFirstTab();
+  },
+  methods: {
+    /**
+     * pars description to extract tabs
+     * catch all edgecage and render full descrion
+     * as html if something goes wrong
+     * @param {*} description
+     */
+    parseDescription: function parseDescription(description) {
+      var parsedTabs = __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* default */].parseDescription(description);
+
+      if (parsedTabs) {
+        this.tabs = this.tabs.concat(parsedTabs);
+      } else {
+        this.tabs.push({
+          key: this.defaultTabName,
+          description: description
+        });
+      }
+    },
+
+    /**
+     * Inject additional tab based on selector.
+     * @param {*} selector
+     */
+    injectTabs: function injectTabs(selectors) {
+      var _this = this;
+
+      selectors.forEach(function (item) {
+        var el = document.querySelector(item.selector);
+
+        if (el) {
+          _this.tabs.push({
+            key: item.tabTitle,
+            description: el.innerHTML
+          });
+        }
+      });
+    },
+
+    /**
+     * activate first tab in tabs array.
+     */
+    activateFirstTab: function activateFirstTab() {
+      this.activeTab = this.tabs[0];
+    }
+  },
+  props: {
+    description: {
+      type: String,
+      required: true
+    },
+    selectorsToInject: {
+      type: Array,
+      required: false
+    },
+    defaultTabName: {
+      type: String,
+      required: true
+    }
+  }
+});
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(12);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__(14).default
+var update = add("72b51fa0", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/dist/cjs.js!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/sass-loader/lib/loader.js!../../node_modules/vue-loader/lib/index.js??vue-loader-options!./dynamic-tab.vue?vue&type=style&index=0&lang=scss&", function() {
+     var newContent = require("!!../../node_modules/css-loader/dist/cjs.js!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/sass-loader/lib/loader.js!../../node_modules/vue-loader/lib/index.js??vue-loader-options!./dynamic-tab.vue?vue&type=style&index=0&lang=scss&");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = normalizeComponent;
 /* globals __VUE_SSR_CONTEXT__ */
 
@@ -165,26 +297,21 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 1 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_script_lang_js___ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_specs_table_vue_vue_type_script_lang_js___ = __webpack_require__(5);
 /* unused harmony namespace reexport */
- /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_script_lang_js___["a" /* default */]); 
+ /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0__node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_specs_table_vue_vue_type_script_lang_js___["a" /* default */]); 
 
 /***/ }),
-/* 2 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers__ = __webpack_require__(9);
-//
-//
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bigcommerce_custom_fields_hierarchy__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_bigcommerce_custom_fields_hierarchy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_bigcommerce_custom_fields_hierarchy__);
 //
 //
 //
@@ -198,117 +325,87 @@ function normalizeComponent (
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
-      tabs: [],
-      activeTab: null
+      specs: []
     };
   },
   created: function created() {
-    this.parseDescription(this.description);
-    this.injectTabs(this.selectorsToInject);
-    this.activateFirstTab();
-  },
-  methods: {
-    /**
-     * pars description to extract tabs
-     * catch all edgecage and render full descrion
-     * as html if something goes wrong
-     * @param {*} description
-     */
-    parseDescription: function parseDescription(description) {
-      var parsedTabs = __WEBPACK_IMPORTED_MODULE_0__helpers__["a" /* default */].parseDescription(description);
+    var _this = this;
 
-      if (parsedTabs) {
-        this.tabs = this.tabs.concat(parsedTabs);
-      } else {
-        this.tabs.push({
-          key: this.defaultTabName,
-          description: description
+    if (!this.productData.custom_fields) {
+      return;
+    }
+
+    var customFieldsObj = __WEBPACK_IMPORTED_MODULE_0_bigcommerce_custom_fields_hierarchy___default()([this.productData], this.nameSpace);
+
+    if (!customFieldsObj) {
+      return;
+    }
+
+    customFieldsObj.forEach(function (s) {
+      var key = "".concat(_this.nameSpace, " \\ ").concat(s.path);
+
+      var customField = _this.productData.custom_fields.find(function (c) {
+        return c.name === key;
+      });
+
+      if (customField) {
+        _this.specs.push({
+          key: s.path,
+          value: customField.value
         });
       }
-    },
+    });
+  },
+  methods: {
+    getSpecs: function getSpecs() {
+      if (!this.maxNumberOfSpecs) {
+        return this.specs;
+      }
 
-    /**
-     * Inject additional tab based on selector.
-     * @param {*} selector
-     */
-    injectTabs: function injectTabs(selectors) {
-      var _this = this;
-
-      selectors.forEach(function (item) {
-        var el = document.querySelector(item.selector);
-
-        if (el) {
-          _this.tabs.push({
-            key: item.tabTitle,
-            description: el.innerHTML
-          });
-        }
-      });
-    },
-
-    /**
-     * activate first tab in tabs array.
-     */
-    activateFirstTab: function activateFirstTab() {
-      this.activeTab = this.tabs[0];
+      return this.specs.slice(0, this.maxNumberOfSpecs);
     }
   },
   props: {
-    description: {
+    nameSpace: {
       type: String,
       required: true
     },
-    selectorsToInject: {
-      type: Array,
+    maxNumberOfSpecs: {
+      type: Number,
       required: false
     },
-    defaultTabName: {
-      type: String,
+    productData: {
+      type: Object,
       required: true
     }
   }
 });
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(11);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__(13).default
-var update = add("72b51fa0", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/dist/cjs.js!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/sass-loader/lib/loader.js!../../node_modules/vue-loader/lib/index.js??vue-loader-options!./dynamic-tab.vue?vue&type=style&index=0&lang=scss&", function() {
-     var newContent = require("!!../../node_modules/css-loader/dist/cjs.js!../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../node_modules/sass-loader/lib/loader.js!../../node_modules/vue-loader/lib/index.js??vue-loader-options!./dynamic-tab.vue?vue&type=style&index=0&lang=scss&");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 4 */,
-/* 5 */,
 /* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dynamic_tab_vue_vue_type_template_id_8dc25cec___ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dynamic_tab_vue_vue_type_script_lang_js___ = __webpack_require__(1);
-/* empty harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dynamic_tab_vue_vue_type_style_index_0_lang_scss___ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bigcommerce_dynamic_tab_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bigcommerce_specs_table_vue__ = __webpack_require__(16);
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  dynamicTab: __WEBPACK_IMPORTED_MODULE_0__bigcommerce_dynamic_tab_vue__["a" /* default */],
+  specsTable: __WEBPACK_IMPORTED_MODULE_1__bigcommerce_specs_table_vue__["a" /* default */]
+});
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dynamic_tab_vue_vue_type_template_id_8dc25cec___ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dynamic_tab_vue_vue_type_script_lang_js___ = __webpack_require__(0);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dynamic_tab_vue_vue_type_style_index_0_lang_scss___ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
 
 
@@ -348,20 +445,20 @@ if (false) {
   }
 }
 component.options.__file = "src/bigcommerce/dynamic-tab.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_template_id_8dc25cec___ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_template_id_8dc25cec___ = __webpack_require__(9);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_template_id_8dc25cec___["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_template_id_8dc25cec___["b"]; });
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -426,7 +523,7 @@ render._withStripped = true
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -464,27 +561,27 @@ var Helpers = {
 /* harmony default export */ __webpack_exports__["a"] = (Helpers);
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_sass_loader_lib_loader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_style_index_0_lang_scss___ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_sass_loader_lib_loader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_style_index_0_lang_scss___ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_sass_loader_lib_loader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_style_index_0_lang_scss____default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_sass_loader_lib_loader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_style_index_0_lang_scss___);
 /* unused harmony reexport namespace */
  /* unused harmony default export */ var _unused_webpack_default_export = (__WEBPACK_IMPORTED_MODULE_0__node_modules_vue_style_loader_index_js_node_modules_css_loader_dist_cjs_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_sass_loader_lib_loader_js_node_modules_vue_loader_lib_index_js_vue_loader_options_dynamic_tab_vue_vue_type_style_index_0_lang_scss____default.a); 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(12)(false);
+exports = module.exports = __webpack_require__(13)(false);
 // Module
 exports.push([module.i, ".tab-header {\n  background-color: black;\n  color: white;\n}\n.tab-button {\n  padding: 15px;\n}\n.tab-body {\n  padding: 15px;\n}\n", ""]);
 
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -575,13 +672,13 @@ function toComment(sourceMap) {
 }
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["default"] = addStylesClient;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__listToStyles__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__listToStyles__ = __webpack_require__(15);
 /*
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
@@ -807,7 +904,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -844,6 +941,303 @@ function listToStyles(parentId, list) {
   }
 
   return styles;
+}
+
+/***/ }),
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__specs_table_vue_vue_type_template_id_4223995c___ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__specs_table_vue_vue_type_script_lang_js___ = __webpack_require__(4);
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
+
+
+
+
+
+/* normalize component */
+
+var component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__["a" /* default */])(
+  __WEBPACK_IMPORTED_MODULE_1__specs_table_vue_vue_type_script_lang_js___["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__specs_table_vue_vue_type_template_id_4223995c___["a" /* render */],
+  __WEBPACK_IMPORTED_MODULE_0__specs_table_vue_vue_type_template_id_4223995c___["b" /* staticRenderFns */],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) {
+  var api = require("/Users/smog/projects/brandlabs/ui/node_modules/vue-hot-reload-api/dist/index.js")
+  api.install(require('vue'))
+  if (api.compatible) {
+    module.hot.accept()
+    if (!module.hot.data) {
+      api.createRecord('4223995c', component.options)
+    } else {
+      api.reload('4223995c', component.options)
+    }
+    module.hot.accept("./specs-table.vue?vue&type=template&id=4223995c&", function () {
+      api.rerender('4223995c', {
+        render: render,
+        staticRenderFns: staticRenderFns
+      })
+    })
+  }
+}
+component.options.__file = "src/bigcommerce/specs-table.vue"
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+
+/***/ }),
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_specs_table_vue_vue_type_template_id_4223995c___ = __webpack_require__(18);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_specs_table_vue_vue_type_template_id_4223995c___["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_specs_table_vue_vue_type_template_id_4223995c___["b"]; });
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "specs-table" },
+    _vm._l(_vm.getSpecs(), function(spec) {
+      return _c("div", { staticClass: "specs-row" }, [
+        _c("dt", { staticClass: "specs-item productView-info-name" }, [
+          _vm._v(_vm._s(spec.key) + ":")
+        ]),
+        _vm._v(" "),
+        _c("dd", { staticClass: "specs-item productView-info-value" }, [
+          _vm._v(_vm._s(spec.value))
+        ])
+      ])
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(20);
+
+/***/ }),
+/* 20 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["default"] = transformPathToHierarchy;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfills__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Node__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils__ = __webpack_require__(23);
+
+
+
+const delimiter = ' \\ ';
+/* harmony export (immutable) */ __webpack_exports__["delimiter"] = delimiter;
+
+/**
+ * Checks whether namespace exists and matches the custom field namespace
+ * @param {Object} field
+ * @param {string} namespace - user provided namespace
+ * @returns {Boolean}
+ */
+
+const belongsToNamespace = (field, namespace) => namespace && field.name.trim().startsWith(namespace);
+/**
+ * Removes namespace from all of the custom fields
+ * @param {Array} customFields
+ */
+
+
+const removeNamespaces = customFields => customFields.map(field => field.substring(field.indexOf(delimiter) + delimiter.length));
+/**
+ * Get node formatted path
+ * @param {Object} node
+ */
+
+
+const getPath = node => node.path.trim();
+/**
+ * Checks if a node list contains a certain node
+ * @param {Array} nodeList
+ * @param {Object} childNode
+ */
+
+
+const nodeExists = (nodeList, childNode) => nodeList.some(rootNode => getPath(rootNode) === getPath(childNode));
+/**
+ * Get the unique custom fields sorted based on the initial order and filtered based on the provided namespace
+ * @param {Array} products
+ * @param {string} namespace
+ */
+
+
+function formatCustomFields(products, namespace) {
+  return products.reduce((fields, product) => {
+    product.custom_fields.forEach((field, index) => {
+      if (!fields.includes(field.name) && belongsToNamespace(field, namespace)) {
+        fields = Object(__WEBPACK_IMPORTED_MODULE_2__utils__["a" /* insert */])(fields, index, field.name);
+      }
+    });
+    return fields;
+  }, []);
+}
+
+class CustomFieldsHierarchy {
+  constructor(customFields) {
+    this.customFields = customFields;
+    this.hierarchy = [];
+    this.constructHierarchy();
+  }
+
+  getHierarchy() {
+    return this.hierarchy;
+  }
+
+  constructHierarchy() {
+    this.customFields.forEach(field => this.populateHierarchy(field));
+  }
+  /**
+   * Recursively traverses the hierarchy until it finds the desired parent node
+   * @param {string} parentPath
+   * @param {Array} nodeList
+   * @returns {Node}
+   */
+
+
+  getParent(parentPath, nodeList) {
+    for (const currentNode of nodeList) {
+      if (parentPath.trim() === getPath(currentNode)) {
+        return currentNode;
+      }
+
+      const parent = this.getParent(parentPath, currentNode.children);
+
+      if (parent) {
+        return parent;
+      }
+    }
+  }
+  /**
+   * Adds all the nodes to the hierarchy
+   * @param {string} fullPath
+   */
+
+
+  populateHierarchy(fullPath) {
+    const fields = fullPath.split(delimiter);
+    fields.forEach((field, index) => {
+      const currentPath = fields.slice(0, index + 1);
+      const node = new __WEBPACK_IMPORTED_MODULE_1__Node__["a" /* default */](field, currentPath.join(delimiter), []);
+
+      if (index === 0 && !nodeExists(this.hierarchy, node)) {
+        this.hierarchy.push(node);
+      } else {
+        this.populateChildren(fields, index, node);
+      }
+    });
+  }
+  /**
+   * Adds all the child nodes to the hierarchy
+   * @param {Array} fields
+   * @param {number} index
+   * @param {Node} node
+   */
+
+
+  populateChildren(fields, index, node) {
+    const parentPath = fields.slice(0, index).join(delimiter);
+    const parentNode = this.getParent(parentPath, this.hierarchy);
+
+    if (parentNode && !nodeExists(parentNode.children, node)) {
+      parentNode.children.push(node);
+    }
+  }
+
+}
+/**
+ * Transforms products custom fields paths into Javascript object
+ * @param {Array}   products - products that are coming from BigCommerce context
+ * @param {string}  namespace - only transform custom fields which have this namespace
+ * @returns {Array}
+ */
+
+
+function transformPathToHierarchy(products, namespace) {
+  const customFields = removeNamespaces(formatCustomFields(products, namespace));
+  const hierarchy = new CustomFieldsHierarchy(customFields);
+  return hierarchy.getHierarchy();
+}
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+/**
+ * polyfill for ES2015 `startsWith` string method
+ */
+if (!String.prototype.startsWith) {
+  String.prototype.startsWith = function (search, pos) {
+    return this.substr(!pos || pos < 0 ? 0 : +pos, search.length) === search;
+  };
+}
+
+/***/ }),
+/* 22 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Node {
+  constructor(name, path, children) {
+    this.name = name;
+    this.path = path;
+    this.children = children;
+  }
+
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Node;
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = insert;
+/**
+ * Inserts a new element in an array at specific index
+ * @param {Array} original array
+ * @param {number} index
+ * @param {*} a new element
+ * @returns A shallow copied new array filled with the new element
+ */
+function insert(original, index, newElement) {
+  const result = original.slice(0);
+  result.splice(index, 0, newElement);
+  return result;
 }
 
 /***/ })

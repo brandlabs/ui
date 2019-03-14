@@ -3,5 +3,5 @@ const something = {
         console.log('QQQQQQQQQQQQ');
     },
 };
-
-export default something;
+module.exports = something;
+// export default something;

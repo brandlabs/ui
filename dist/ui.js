@@ -1,4 +1,4 @@
-/******/ (function(modules) { // webpackBootstrap
+(function(e, a) { for(var i in a) e[i] = a[i]; }(exports, /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -65,16 +65,14 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var something = {
   blah: function blah() {
     console.log('QQQQQQQQQQQQ');
   }
 };
-/* harmony default export */ __webpack_exports__["default"] = (something);
+module.exports = something; // export default something;
 
 /***/ })
-/******/ ]);
+/******/ ])));

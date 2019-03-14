@@ -27,7 +27,7 @@ module.exports = {
         filename: 'ui.js',
         path: path.resolve(__dirname, 'dist'),
         library: '',
-        libraryTarget: 'commonjs',
+        libraryTarget: 'umd',
     },
     plugins: [new VueLoaderPlugin()],
     watch: false,

@@ -410,8 +410,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   BigCommerce: {
-    DynamicTabs: DynamicTabs,
-    SpecsTable: SpecsTable
+    DynamicTabs: __WEBPACK_IMPORTED_MODULE_0__src_bigcommerce_dynamic_tab_vue__["a" /* default */],
+    SpecsTable: __WEBPACK_IMPORTED_MODULE_1__src_bigcommerce_specs_table_vue__["a" /* default */]
   }
 });
 
@@ -422,7 +422,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dynamic_tab_vue_vue_type_template_id_8dc25cec___ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dynamic_tab_vue_vue_type_script_lang_js___ = __webpack_require__(0);
-/* unused harmony reexport namespace */
+/* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dynamic_tab_vue_vue_type_style_index_0_lang_scss___ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
@@ -445,7 +445,7 @@ var component = Object(__WEBPACK_IMPORTED_MODULE_3__node_modules_vue_loader_lib_
 )
 
 component.options.__file = "src/bigcommerce/dynamic-tab.vue"
-/* unused harmony default export */ var _unused_webpack_default_export = (component.exports);
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
 /* 9 */
@@ -945,7 +945,7 @@ function listToStyles (parentId, list) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__specs_table_vue_vue_type_template_id_4223995c___ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__specs_table_vue_vue_type_script_lang_js___ = __webpack_require__(4);
-/* unused harmony reexport namespace */
+/* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
 
@@ -966,7 +966,7 @@ var component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_
 )
 
 component.options.__file = "src/bigcommerce/specs-table.vue"
-/* unused harmony default export */ var _unused_webpack_default_export = (component.exports);
+/* harmony default export */ __webpack_exports__["a"] = (component.exports);
 
 /***/ }),
 /* 18 */

@@ -13,7 +13,7 @@ const Helpers = {
             return null;
         }
 
-        rows.forEach(r => {
+        Array.from(rows).forEach(r => {
             const cells = r.querySelectorAll('td');
             if (cells.length < 2) {
                 return null;

@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["brandlabsui"] = factory();
+		exports["brandlabs-ui"] = factory();
 	else
-		root["brandlabsui"] = factory();
+		root["brandlabs-ui"] = factory();
 })(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache

@@ -9,7 +9,7 @@ module.exports = function exportGrunt(grunt) {
             options: {
                 output: {
                     path: path.resolve(__dirname, 'dist'),
-                    library: 'brandlabs-ui',
+                    library: 'UI',
                     libraryTarget: 'umd',
                 },
                 module: {
@@ -23,6 +23,7 @@ module.exports = function exportGrunt(grunt) {
                         },
                         {
                             test: /\.js$/,
+                            exclude: /node_modules/,
                             loader: 'babel-loader',
                         },
                         {
@@ -35,13 +36,18 @@ module.exports = function exportGrunt(grunt) {
                         },
                     ],
                 },
+                resolve: {
+                    alias: {
+                        'bigcommerce-custom-fields-hierarchy': path.resolve(__dirname, 'node_modules/bigcommerce-custom-fields-hierarchy/dist/custom-fields-hierarchy.min.js')
+                    }
+                },
             },
             development: {
                 entry: [
                     './index.js',
                 ],
                 output: {
-                    filename: 'brandlabs-ui.js',
+                    filename: 'ui.js',
                 },
                 plugins: [
                     new VueLoaderPlugin(),
@@ -52,7 +58,7 @@ module.exports = function exportGrunt(grunt) {
                     './index.js',
                 ],
                 output: {
-                    filename: 'brandlabs-ui.min.js',
+                    filename: 'ui.min.js',
                 },
                 plugins: [
                     new CleanWebpackPlugin(['dist']),

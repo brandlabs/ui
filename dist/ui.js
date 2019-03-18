@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["brandlabsui"] = factory();
+		exports["UI"] = factory();
 	else
-		root["brandlabsui"] = factory();
+		root["UI"] = factory();
 })(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -409,8 +409,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  dynamicTabs: __WEBPACK_IMPORTED_MODULE_0__src_bigcommerce_dynamic_tab_vue__["a" /* default */],
-  specsTable: __WEBPACK_IMPORTED_MODULE_1__src_bigcommerce_specs_table_vue__["a" /* default */]
+  BigCommerce: {
+    DynamicTabs: DynamicTabs,
+    SpecsTable: SpecsTable
+  }
 });
 
 /***/ }),
@@ -420,7 +422,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__dynamic_tab_vue_vue_type_template_id_8dc25cec___ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__dynamic_tab_vue_vue_type_script_lang_js___ = __webpack_require__(0);
-/* unused harmony namespace reexport */
+/* unused harmony reexport namespace */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dynamic_tab_vue_vue_type_style_index_0_lang_scss___ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
@@ -443,7 +445,7 @@ var component = Object(__WEBPACK_IMPORTED_MODULE_3__node_modules_vue_loader_lib_
 )
 
 component.options.__file = "src/bigcommerce/dynamic-tab.vue"
-/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+/* unused harmony default export */ var _unused_webpack_default_export = (component.exports);
 
 /***/ }),
 /* 9 */
@@ -584,12 +586,12 @@ exports.push([module.i, ".tab-header {\n  background-color: black;\n  color: whi
 
 "use strict";
 
+
 /*
   MIT License http://www.opensource.org/licenses/mit-license.php
   Author Tobias Koppers @sokra
 */
 // css base code, injected by the css-loader
-
 module.exports = function (useSourceMap) {
   var list = []; // return the list of modules as css string
 
@@ -911,35 +913,30 @@ function applyToTag (styleElement, obj) {
  * Translates the list format produced by css-loader into something
  * easier to manipulate.
  */
-function listToStyles(parentId, list) {
-  var styles = [];
-  var newStyles = {};
-
+function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
   for (var i = 0; i < list.length; i++) {
-    var item = list[i];
-    var id = item[0];
-    var css = item[1];
-    var media = item[2];
-    var sourceMap = item[3];
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
     var part = {
       id: parentId + ':' + i,
       css: css,
       media: media,
       sourceMap: sourceMap
-    };
-
+    }
     if (!newStyles[id]) {
-      styles.push(newStyles[id] = {
-        id: id,
-        parts: [part]
-      });
+      styles.push(newStyles[id] = { id: id, parts: [part] })
     } else {
-      newStyles[id].parts.push(part);
+      newStyles[id].parts.push(part)
     }
   }
-
-  return styles;
+  return styles
 }
+
 
 /***/ }),
 /* 17 */
@@ -948,7 +945,7 @@ function listToStyles(parentId, list) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__specs_table_vue_vue_type_template_id_4223995c___ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__specs_table_vue_vue_type_script_lang_js___ = __webpack_require__(4);
-/* unused harmony namespace reexport */
+/* unused harmony reexport namespace */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_runtime_componentNormalizer_js__ = __webpack_require__(3);
 
 
@@ -969,7 +966,7 @@ var component = Object(__WEBPACK_IMPORTED_MODULE_2__node_modules_vue_loader_lib_
 )
 
 component.options.__file = "src/bigcommerce/specs-table.vue"
-/* harmony default export */ __webpack_exports__["a"] = (component.exports);
+/* unused harmony default export */ var _unused_webpack_default_export = (component.exports);
 
 /***/ }),
 /* 18 */
@@ -1018,206 +1015,7 @@ render._withStripped = true
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(21);
-
-/***/ }),
-/* 21 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (immutable) */ __webpack_exports__["default"] = transformPathToHierarchy;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfills__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Node__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils__ = __webpack_require__(24);
-
-
-
-const delimiter = ' \\ ';
-/* harmony export (immutable) */ __webpack_exports__["delimiter"] = delimiter;
-
-/**
- * Checks whether namespace exists and matches the custom field namespace
- * @param {Object} field
- * @param {string} namespace - user provided namespace
- * @returns {Boolean}
- */
-
-const belongsToNamespace = (field, namespace) => namespace && field.name.trim().startsWith(namespace);
-/**
- * Removes namespace from all of the custom fields
- * @param {Array} customFields
- */
-
-
-const removeNamespaces = customFields => customFields.map(field => field.substring(field.indexOf(delimiter) + delimiter.length));
-/**
- * Get node formatted path
- * @param {Object} node
- */
-
-
-const getPath = node => node.path.trim();
-/**
- * Checks if a node list contains a certain node
- * @param {Array} nodeList
- * @param {Object} childNode
- */
-
-
-const nodeExists = (nodeList, childNode) => nodeList.some(rootNode => getPath(rootNode) === getPath(childNode));
-/**
- * Get the unique custom fields sorted based on the initial order and filtered based on the provided namespace
- * @param {Array} products
- * @param {string} namespace
- */
-
-
-function formatCustomFields(products, namespace) {
-  return products.reduce((fields, product) => {
-    product.custom_fields.forEach((field, index) => {
-      if (!fields.includes(field.name) && belongsToNamespace(field, namespace)) {
-        fields = Object(__WEBPACK_IMPORTED_MODULE_2__utils__["a" /* insert */])(fields, index, field.name);
-      }
-    });
-    return fields;
-  }, []);
-}
-
-class CustomFieldsHierarchy {
-  constructor(customFields) {
-    this.customFields = customFields;
-    this.hierarchy = [];
-    this.constructHierarchy();
-  }
-
-  getHierarchy() {
-    return this.hierarchy;
-  }
-
-  constructHierarchy() {
-    this.customFields.forEach(field => this.populateHierarchy(field));
-  }
-  /**
-   * Recursively traverses the hierarchy until it finds the desired parent node
-   * @param {string} parentPath
-   * @param {Array} nodeList
-   * @returns {Node}
-   */
-
-
-  getParent(parentPath, nodeList) {
-    for (const currentNode of nodeList) {
-      if (parentPath.trim() === getPath(currentNode)) {
-        return currentNode;
-      }
-
-      const parent = this.getParent(parentPath, currentNode.children);
-
-      if (parent) {
-        return parent;
-      }
-    }
-  }
-  /**
-   * Adds all the nodes to the hierarchy
-   * @param {string} fullPath
-   */
-
-
-  populateHierarchy(fullPath) {
-    const fields = fullPath.split(delimiter);
-    fields.forEach((field, index) => {
-      const currentPath = fields.slice(0, index + 1);
-      const node = new __WEBPACK_IMPORTED_MODULE_1__Node__["a" /* default */](field, currentPath.join(delimiter), []);
-
-      if (index === 0 && !nodeExists(this.hierarchy, node)) {
-        this.hierarchy.push(node);
-      } else {
-        this.populateChildren(fields, index, node);
-      }
-    });
-  }
-  /**
-   * Adds all the child nodes to the hierarchy
-   * @param {Array} fields
-   * @param {number} index
-   * @param {Node} node
-   */
-
-
-  populateChildren(fields, index, node) {
-    const parentPath = fields.slice(0, index).join(delimiter);
-    const parentNode = this.getParent(parentPath, this.hierarchy);
-
-    if (parentNode && !nodeExists(parentNode.children, node)) {
-      parentNode.children.push(node);
-    }
-  }
-
-}
-/**
- * Transforms products custom fields paths into Javascript object
- * @param {Array}   products - products that are coming from BigCommerce context
- * @param {string}  namespace - only transform custom fields which have this namespace
- * @returns {Array}
- */
-
-
-function transformPathToHierarchy(products, namespace) {
-  const customFields = removeNamespaces(formatCustomFields(products, namespace));
-  const hierarchy = new CustomFieldsHierarchy(customFields);
-  return hierarchy.getHierarchy();
-}
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports) {
-
-/**
- * polyfill for ES2015 `startsWith` string method
- */
-if (!String.prototype.startsWith) {
-  String.prototype.startsWith = function (search, pos) {
-    return this.substr(!pos || pos < 0 ? 0 : +pos, search.length) === search;
-  };
-}
-
-/***/ }),
-/* 23 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class Node {
-  constructor(name, path, children) {
-    this.name = name;
-    this.path = path;
-    this.children = children;
-  }
-
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = Node;
-
-
-/***/ }),
-/* 24 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = insert;
-/**
- * Inserts a new element in an array at specific index
- * @param {Array} original array
- * @param {number} index
- * @param {*} a new element
- * @returns A shallow copied new array filled with the new element
- */
-function insert(original, index, newElement) {
-  const result = original.slice(0);
-  result.splice(index, 0, newElement);
-  return result;
-}
+!function(e,t){ true?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.CustomFieldsHierarchy=t():e.CustomFieldsHierarchy=t()}(window,function(){return function(e){var t={};function r(n){if(t[n])return t[n].exports;var i=t[n]={i:n,l:!1,exports:{}};return e[n].call(i.exports,i,i.exports,r),i.l=!0,i.exports}return r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var i in e)r.d(n,i,function(t){return e[t]}.bind(null,i));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=0)}([function(e,t,r){e.exports=r(1)},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.delimiter=void 0;var n=function(){function e(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}return function(t,r,n){return r&&e(t.prototype,r),n&&e(t,n),t}}();t.default=function(e,t){var r=a(function(e,t){return e.reduce(function(e,r){return r.custom_fields.forEach(function(r,n){!e.includes(r.name)&&c(r,t)&&(e=(0,o.insert)(e,n,r.name))}),e},[])}(e,t));return new s(r).getHierarchy()},r(2);var i=function(e){return e&&e.__esModule?e:{default:e}}(r(3)),o=r(4),u=t.delimiter=" \\ ",c=function(e,t){return t&&e.name.trim().startsWith(t)},a=function(e){return e.map(function(e){return e.substring(e.indexOf(u)+u.length)})},f=function(e){return e.path.trim()},l=function(e,t){return e.some(function(e){return f(e)===f(t)})},s=function(){function e(t){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.customFields=t,this.hierarchy=[],this.constructHierarchy()}return n(e,[{key:"getHierarchy",value:function(){return this.hierarchy}},{key:"constructHierarchy",value:function(){var e=this;this.customFields.forEach(function(t){return e.populateHierarchy(t)})}},{key:"getParent",value:function(e,t){var r=!0,n=!1,i=void 0;try{for(var o,u=t[Symbol.iterator]();!(r=(o=u.next()).done);r=!0){var c=o.value;if(e.trim()===f(c))return c;var a=this.getParent(e,c.children);if(a)return a}}catch(e){n=!0,i=e}finally{try{!r&&u.return&&u.return()}finally{if(n)throw i}}}},{key:"populateHierarchy",value:function(e){var t=this,r=e.split(u);r.forEach(function(e,n){var o=r.slice(0,n+1),c=new i.default(e,o.join(u),[]);0!==n||l(t.hierarchy,c)?t.populateChildren(r,n,c):t.hierarchy.push(c)})}},{key:"populateChildren",value:function(e,t,r){var n=e.slice(0,t).join(u),i=this.getParent(n,this.hierarchy);i&&!l(i.children,r)&&i.children.push(r)}}]),e}()},function(e,t,r){"use strict";String.prototype.startsWith||(String.prototype.startsWith=function(e,t){return this.substr(!t||t<0?0:+t,e.length)===e})},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=function e(t,r,n){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.name=t,this.path=r,this.children=n}},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.insert=function(e,t,r){var n=e.slice(0);return n.splice(t,0,r),n}}])});
 
 /***/ })
 /******/ ]);

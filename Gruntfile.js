@@ -9,7 +9,7 @@ module.exports = function exportGrunt(grunt) {
             options: {
                 output: {
                     path: path.resolve(__dirname, 'dist'),
-                    library: 'brandlabsui',
+                    library: 'brandlabs-ui',
                     libraryTarget: 'umd',
                 },
                 module: {

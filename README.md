@@ -59,7 +59,42 @@ return new Vue({
         });
 ```
 
-- to inject alrady existing element in your page as tab, use property `selectorsToInject` and pass selector and tab title as it is shown in example above.
+- to inject already existing element in your page as tab, use property `selectorsToInject` and pass selector and tab title as it is shown in example above.
+
+### Sidebar category list component
+
+#### Description
+Sidebar category list component provides functionality for multi level category list in the sidebar. Lets say "Pins" is a subcategory of "Model + Die". So, if someone clicks on "Pins" and it goes to the "Pins" category, "Model + Die" and the subcategories would still be showing, and someone can click on "Model + Die" to go back to that category.
+
+#### Usage
+```js
+new Vue({
+    el: '.js-vue-category-list',
+    render: h => h(SidebarCategoryList, {
+        props: {
+            context: this.context,
+        },
+    }),
+});
+```
+
+### Product share sortable component
+
+#### Description
+On the product page product sharing button list is not possible to be sorted. Product share sortable component allows it to be sortable.
+
+#### Usage
+```js
+new Vue({
+    el: '.js-product-share',
+    render: h => h(ProductShareSortable, {
+        props: {
+            addthis: this.context.settings.add_this,
+            order: ['facebook', 'twitter', 'pinterest', 'email', 'print'],
+        },
+    }),
+});
+```
 
 ### Transpiling
 

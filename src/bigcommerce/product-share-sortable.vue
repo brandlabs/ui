@@ -39,6 +39,10 @@ export default {
             type: String,
             default: '//s7.addthis.com/js/300/addthis_widget.js'
         },
+        pubid: {
+            type: String,
+            required: true
+        },
         order: {
             type: Array,
             default: function () {
@@ -66,7 +70,7 @@ export default {
 
         const el = document.createElement('script');
         el.setAttribute('id', 'addthis-share')
-        el.setAttribute('src', `${this.cdn}#pubid=ra-4e94ed470ee51e32`)
+        el.setAttribute('src', `${this.cdn}#pubid=${this.pubid}`)
         document.body.appendChild(el);
     }
 };

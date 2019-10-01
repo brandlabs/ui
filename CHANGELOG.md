@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2019-10-01
+### Changed
+- Take only text for label content.
+
 ## [0.2.0] - 2019-05-16
 ### Added
 - Vacalon project reusable components
@@ -20,7 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial project (tabs)
 
-[Unreleased]: https://gitlab.brandlabs.net/brandlabs/ui/compare/v0.2.0...HEAD
+[Unreleased]: https://gitlab.brandlabs.net/brandlabs/ui/compare/v0.3.0...HEAD
+[0.3.0]: https://gitlab.brandlabs.net/brandlabs/ui/compare/v0.2.0...v0.3.0
 [0.2.0]: https://gitlab.brandlabs.net/brandlabs/ui/compare/v0.1.1...v0.2.0
 [0.1.1]: https://gitlab.brandlabs.net/brandlabs/ui/compare/v0.1.0...v0.1.1
 [0.1.0]: https://gitlab.brandlabs.net/brandlabs/ui/compare/v0.0.0...v0.1.0

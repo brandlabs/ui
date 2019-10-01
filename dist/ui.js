@@ -551,7 +551,7 @@ var Helpers = {
       }
 
       return tabs.push({
-        key: cells[0].innerHTML,
+        key: cells[0].textContent,
         description: cells[1].innerHTML
       });
     });

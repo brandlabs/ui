@@ -1,11 +1,11 @@
 ## Install
 ```
-npm install git+ssh://git@gitlab.brandlabs.net:brandlabs/ui.git --save
+npm install git+ssh://git@github.com:brandlabs/ui.git --save
 ```
 
 if you want to try some version that is not merged in master yet u can try to install
 ```
-npm install  git+ssh://git@gitlab.brandlabs.net:brandlabs/ui.git#[branch name] --save
+npm install  git+ssh://git@github.com:brandlabs/ui.git#[branch name] --save
 ```
 
 ## Guidelines 
